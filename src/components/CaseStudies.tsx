@@ -2,22 +2,28 @@ import { CheckCircle2 } from "lucide-react";
 
 const caseStudies = [
   {
-    title: "Corporate Merger Success",
-    problem: "A mid-sized technology company faced complex regulatory challenges during a merger with an international firm, risking deal failure and significant financial loss.",
-    outcome: "Successfully navigated regulatory approvals, structured the deal to optimize tax benefits, and completed the merger 2 months ahead of schedule, saving the client ₹50 crores.",
-    category: "Corporate Law"
+    title: "Crypto Business Setup and Advertising Compliance",
+    category: "Business Laws",
+    problem:
+      "A crypto focused marketing startup wanted to set up operations in India and promote virtual digital assets without breaching evolving regulations or violating ASCI guidelines on crypto advertising.",
+    outcome:
+      "Structured their business model and marketing workflows to ensure full compliance with Advertising Standards Council of India guidelines for virtual digital assets and NFT advertisements, enabling the company to run campaigns legally and operate securely in the Indian market."
   },
   {
-    title: "Family Estate Resolution",
-    problem: "Multi-generational property dispute involving 12 family members, 5 properties, and contested wills spanning 3 decades of legal complications.",
-    outcome: "Achieved amicable settlement through mediation, preserved family relationships, and ensured fair distribution of assets worth ₹30 crores within 6 months.",
-    category: "Family Law"
+    title: "Employment Law Dispute and Reputation Protection",
+    category: "Employment Laws",
+    problem:
+      "The company faced allegations of forgery, confidential data misuse, privacy breaches, social media misuse, online defamation by former employees and potential violations of employment agreements, creating legal and reputational risk.",
+    outcome:
+      "Provided end to end legal support by assessing evidence, issuing structured legal notices, handling negotiations and securing compliance, which protected the company reputation and resolved the matter without prolonged litigation."
   },
   {
-    title: "Criminal Defense Victory",
-    problem: "Client faced serious criminal charges with substantial evidence against them, risking 10+ years imprisonment and career destruction.",
-    outcome: "Identified critical procedural violations and evidence inconsistencies, resulting in complete acquittal and restoration of client's reputation.",
-    category: "Criminal Law"
+    title: "Non Compete and Non Solicitation Contract Redesign",
+    category: "Law of Contracts",
+    problem:
+      "The existing non compete clause was overbroad in duration, geography and scope, placing it at risk of being void under constitutional and contractual law while failing to properly protect the company’s AI driven business model.",
+    outcome:
+      "Redesigned the provisions by narrowing definitions, removing territorial excess, refining non solicitation terms and balancing enforceability and fairness to protect commercial interests while reducing litigation risk."
   }
 ];
 
@@ -25,12 +31,13 @@ const CaseStudies = () => {
   return (
     <section id="case-studies" className="py-24 bg-background">
       <div className="container mx-auto px-4">
+
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-5xl font-serif font-bold text-foreground mb-6">
-            Proven <span className="text-gradient-burgundy">Success Stories</span>
+            Proven <span className="text-gradient-burgundy">Case Outcomes</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Real results, real impact. Explore how we've helped clients overcome complex legal challenges and achieve their objectives.
+            Practical legal strategies with measurable results across business, employment and contract law matters.
           </p>
         </div>
 
@@ -78,6 +85,7 @@ const CaseStudies = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           ))}
         </div>

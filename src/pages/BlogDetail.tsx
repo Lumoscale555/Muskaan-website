@@ -1,120 +1,120 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 
+const DATA:any = {
+  "mca-posh": {
+    title: "MCA 2025 Annual Reporting, POSH & Maternity",
+    headline: "POSH and maternity compliance move into board reporting",
+    insight:
+      "MCA mandates disclosure of complaints, disposal details and maternity compliance in board reports.",
+    why:
+      "This converts HR obligations into governance risk and investor disclosures.",
+    author: "CS Muskaan Aggarwal (LLM, ACS)",
+    date: "April 2025",
+    readTime: "5 min read",
+    category: "Corporate Compliance",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85"
+  },
+  "ibbi-pmla": {
+    title: "IBBI Circular under PMLA",
+    headline: "Asset recovery allowed under PMLA via Special Courts",
+    insight:
+      "IPs can restore attached assets into CIRP with standard undertakings.",
+    why:
+      "This improves creditor recoveries and reduces procedural friction.",
+    author: "Maglaw Advisors",
+    date: "April 2025",
+    readTime: "4 min read",
+    category: "Insolvency Law",
+    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a"
+  },
+  "shops-law": {
+    title: "Shops Registration Compliance",
+    headline: "Nearly all offices legally require Shops Act registration",
+    insight:
+      "Coworking spaces and home offices are covered under Shops Acts.",
+    why:
+      "Non registration leads to penalties and banking problems.",
+    author: "Maglaw Advisors",
+    date: "April 2025",
+    readTime: "4 min read",
+    category: "Employment Law",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+  }
+};
+
 const BlogDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const post = DATA[id || ""];
+
+  useEffect(() => window.scrollTo(0, 0), []);
+
+  if (!post) return <div className="pt-32 text-center">Article not found</div>;
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-4">
-          <Button asChild variant="ghost" className="mb-8 animate-fade-in">
-            <Link to="/blogs" className="flex items-center">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Blog
-            </Link>
-          </Button>
 
-          <article className="max-w-4xl mx-auto animate-fade-in-up">
-            {/* Featured Image */}
-            <div className="mb-12 rounded-2xl overflow-hidden shadow-premium">
-              <img
-                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80"
-                alt="Article"
-                className="w-full h-[500px] object-cover"
-              />
+          {/* BACK BUTTON */}
+          <button
+            onClick={() => navigate("/blogs")}
+            className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-2 rounded-md hover:bg-primary hover:text-white transition mb-10"
+          >
+            <ArrowLeft size={16} /> Back to Legal Insights
+          </button>
+
+          <article className="max-w-4xl mx-auto">
+
+            <img src={post.image} className="rounded-xl mb-10 w-full h-[500px] object-cover" />
+
+            <div className="flex flex-wrap gap-4 text-muted-foreground mb-6">
+              <span className="flex items-center"><User className="mr-2 w-4 h-4" />{post.author}</span>
+              <span className="flex items-center"><Calendar className="mr-2 w-4 h-4" />{post.date}</span>
+              <span className="flex items-center"><Clock className="mr-2 w-4 h-4" />{post.readTime}</span>
+              <span className="bg-primary/10 text-primary px-3 py-1 rounded">{post.category}</span>
             </div>
 
-            {/* Meta */}
-            <div className="flex flex-wrap items-center gap-6 mb-8 text-muted-foreground">
-              <div className="flex items-center">
-                <User className="w-4 h-4 mr-2" />
-                <span>Muskaan Advocate</span>
+            <h1 className="text-5xl font-serif font-bold mb-10">{post.title}</h1>
+
+            <div className="space-y-10">
+              <div>
+                <h2 className="text-2xl font-bold mb-2">Headline</h2>
+                <p className="text-muted-foreground text-lg">{post.headline}</p>
               </div>
-              <div className="flex items-center">
-                <Calendar className="w-4 h-4 mr-2" />
-                <span>March 15, 2025</span>
+
+              <div>
+                <h2 className="text-2xl font-bold mb-2">Insight</h2>
+                <p className="text-muted-foreground text-lg">{post.insight}</p>
               </div>
-              <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-2" />
-                <span>5 min read</span>
+
+              <div>
+                <h2 className="text-2xl font-bold mb-2">Why it matters</h2>
+                <p className="text-muted-foreground text-lg">{post.why}</p>
               </div>
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                Corporate Law
-              </span>
             </div>
 
-            {/* Title */}
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-foreground mb-8">
-              Understanding Corporate Compliance in 2025
-            </h1>
-
-            {/* Content */}
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                The landscape of corporate compliance is evolving rapidly, with new regulations and enforcement mechanisms reshaping how businesses operate. In this comprehensive guide, we explore the key compliance requirements that every modern corporation must address.
+            <div className="mt-20 bg-gradient-burgundy rounded-2xl p-12 text-center shadow-premium">
+              <h3 className="text-3xl font-bold text-white">Need Expert Guidance</h3>
+              <p className="text-white/90 mt-3">
+                Get compliance clarity from Maglaw Advisors.
               </p>
-
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-4 mt-12">
-                The Changing Regulatory Environment
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Corporate India is witnessing unprecedented regulatory scrutiny across sectors. From the Companies Act amendments to new environmental regulations, businesses must stay vigilant and proactive in their compliance approach.
-              </p>
-
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-4 mt-12">
-                Key Compliance Areas
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Modern corporate compliance extends beyond traditional governance. It encompasses data privacy, environmental sustainability, labor laws, and international trade regulations. Each area requires specialized attention and strategic planning.
-              </p>
-
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-4 mt-12">
-                Building a Compliance Framework
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                A robust compliance framework begins with risk assessment, followed by policy development, training programs, and continuous monitoring. Regular audits and updates ensure your organization stays ahead of regulatory changes.
-              </p>
-
-              <div className="bg-primary/10 rounded-2xl p-8 my-12 border-l-4 border-primary">
-                <p className="text-lg text-foreground italic">
-                  "Proactive compliance is not just about avoiding penalties—it's about building trust with stakeholders and creating sustainable business practices that stand the test of time."
-                </p>
-                <p className="text-sm text-muted-foreground mt-4">
-                  - Muskaan Advocate, Founder, MAG.LAW
-                </p>
-              </div>
-
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-4 mt-12">
-                Conclusion
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Navigating corporate compliance in 2025 requires a comprehensive approach that combines legal expertise, business acumen, and technological solutions. Partner with experienced legal professionals to ensure your compliance strategy is both effective and efficient.
-              </p>
-            </div>
-
-            {/* CTA */}
-            <div className="mt-16 bg-gradient-burgundy text-primary-foreground rounded-2xl p-12 text-center shadow-premium">
-              <h3 className="text-3xl font-serif font-bold mb-4">
-                Need Expert Legal Guidance?
-              </h3>
-              <p className="text-xl mb-8 text-primary-foreground/90">
-                Our corporate law team is ready to help you navigate compliance challenges.
-              </p>
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+              <a
+                href="/#contact"
+                className="inline-block mt-6 bg-white text-primary px-8 py-3 rounded shadow hover:scale-105 transition"
               >
-                <Link to="/#contact">Schedule a Consultation</Link>
-              </Button>
+                Schedule a Consultation
+              </a>
             </div>
+
           </article>
+
         </div>
       </main>
 

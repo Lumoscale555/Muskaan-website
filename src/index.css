@@ -3,11 +3,9 @@
 @tailwind utilities;
 
 /* Design System */
-/* All colors MUST be HSL */
 
 @layer base {
   :root {
-    /* Brand Colors */
     --background: 0 100% 99%;
     --foreground: 0 4% 6%;
 
@@ -29,16 +27,12 @@
     --accent: 336 48% 30%;
     --accent-foreground: 0 100% 99%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 100% 99%;
-
     --border: 0 10% 90%;
     --input: 0 10% 90%;
     --ring: 336 48% 20%;
 
     --radius: 0.75rem;
 
-    /* Premium Tokens */
     --burgundy: 336 48% 20%;
     --burgundy-light: 336 48% 30%;
     --burgundy-dark: 336 48% 15%;
@@ -46,34 +40,24 @@
     --grey: 0 0% 65%;
     --black: 0 4% 6%;
 
-    /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(336 48% 20% / 0.95), hsl(336 48% 15% / 0.9));
     --gradient-soft: linear-gradient(180deg, hsl(0 100% 99%), hsl(0 10% 96%));
     --gradient-burgundy: linear-gradient(135deg, hsl(336 48% 20%), hsl(336 48% 30%));
     --gradient-overlay: linear-gradient(90deg, hsl(336 48% 20% / 0.8), transparent);
 
-    /* Shadows */
     --shadow-elegant: 0 10px 40px -10px hsl(336 48% 20% / 0.15);
     --shadow-premium: 0 20px 60px -15px hsl(336 48% 20% / 0.25);
     --shadow-glow: 0 0 40px hsl(336 48% 30% / 0.3);
     --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.08);
 
-    /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-elegant: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .dark {
-    --background: 336 48% 15%;
-    --foreground: 0 100% 99%;
-    --primary: 0 100% 99%;
-    --primary-foreground: 336 48% 20%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
   body {
@@ -87,95 +71,35 @@
   }
 }
 
-@layer utilities {
-
-  /* Fade In */
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-  }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  .animate-fade-in-down {
-    animation: fadeInDown 0.8s ease-out forwards;
-  }
-
-  .animate-slide-in-left {
-    animation: slideInLeft 0.8s ease-out forwards;
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.8s ease-out forwards;
-  }
-
-  .animate-scale-in {
-    animation: scaleIn 0.6s ease-out forwards;
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite;
-  }
-
-  /* Parallax */
-  .parallax-slow {
-    transform: translateY(var(--scroll-offset, 0));
-    transition: transform 0.1s linear;
-  }
-
-  /* Hover Enhancements */
-  .hover-lift {
-    transition: var(--transition-smooth);
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-premium);
-  }
-
-  .hover-glow:hover {
-    box-shadow: var(--shadow-glow);
-  }
-
-  /* Premium Gradients */
-  .gradient-hero {
-    background: var(--gradient-hero);
-  }
-
-  .gradient-burgundy {
-    background: var(--gradient-burgundy);
-  }
-
-  .gradient-soft {
-    background: var(--gradient-soft);
-  }
-
-  /* Text Gradient */
-  .text-gradient-burgundy {
-    background: linear-gradient(135deg, hsl(var(--burgundy)), hsl(var(--burgundy-light)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Infinite Horizontal Scroll (Team Section) */
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .animate-scroll {
-    animation: scroll 25s linear infinite;
-  }
-
-  .pause-scroll {
-    animation-play-state: paused;
-  }
+/* FIXED ROOT */
+#root {
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* Keyframes */
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
+/* HEADER OFFSET FIX */
+section {
+  scroll-margin-top: 120px;
+}
+
+/* ANIMATION OPTIMIZATION */
+.animate-fade-in,
+.animate-fade-in-up,
+.animate-fade-in-down,
+.animate-slide-in-left,
+.animate-slide-in-right,
+.animate-scale-in {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* FADE ANIMATIONS */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

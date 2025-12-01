@@ -2,39 +2,25 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
-  TrendingUp,
   Building2,
-  Globe,
   Briefcase,
-  ShieldCheck,
-  Leaf,
-  HeartHandshake,
   GitMerge,
-  Scale
+  ShieldCheck,
+  Scale,
+  Globe,
+  TrendingUp,
+  Leaf,
+  HeartHandshake
 } from "lucide-react";
 import { useEffect } from "react";
 
 const practiceAreas = [
-  {
-    icon: TrendingUp,
-    title: "Capital Markets and Fundraising Advisory",
-    description:
-      "Structured fundraising and capital market support for startups and enterprises including investor engagement, IPO readiness, and regulatory compliance.",
-    slug: "capital-markets-fundraising"
-  },
   {
     icon: Building2,
     title: "Corporate Law, Governance and Secretarial Services",
     description:
       "End to end support under the Companies Act including governance, board management, SOP creation, and regulatory representation.",
     slug: "corporate-governance-secretarial"
-  },
-  {
-    icon: Globe,
-    title: "Foreign Exchange Law and Cross Border Transaction Advisory",
-    description:
-      "Strategic advice on FDI, ECB, outbound investments, regulatory approvals, FEMA compliance and structuring of international transactions.",
-    slug: "fema-cross-border"
   },
   {
     icon: Briefcase,
@@ -44,11 +30,39 @@ const practiceAreas = [
     slug: "business-setup-startup"
   },
   {
+    icon: GitMerge,
+    title: "Mergers, Acquisitions and Business Restructuring",
+    description:
+      "Strategic M and A and restructuring solutions including hive offs, slump sale, succession planning and negotiation of transaction documents.",
+    slug: "mergers-acquisitions-restructuring"
+  },
+  {
     icon: ShieldCheck,
     title: "Risk, Compliance and Due Diligence Services",
     description:
       "Legal, regulatory and financial diligence for transactions including ESG checks, compliance health audits and red flag reporting.",
     slug: "risk-compliance-due-diligence"
+  },
+  {
+    icon: Scale,
+    title: "Insolvency and Bankruptcy Support",
+    description:
+      "End to end IBC support including CIRP, liquidation, voluntary liquidation, claim verification, distribution and filings before NCLT and DRT.",
+    slug: "insolvency-bankruptcy"
+  },
+  {
+    icon: Globe,
+    title: "Foreign Exchange Law and Cross Border Transaction Advisory",
+    description:
+      "Strategic advice on FDI, ECB, outbound investments, regulatory approvals, FEMA compliance and structuring of international transactions.",
+    slug: "fema-cross-border"
+  },
+  {
+    icon: TrendingUp,
+    title: "Capital Markets and Fundraising Advisory",
+    description:
+      "Structured fundraising and capital market support for startups and enterprises including investor engagement, IPO readiness, and regulatory compliance.",
+    slug: "capital-markets-fundraising"
   },
   {
     icon: Leaf,
@@ -63,27 +77,12 @@ const practiceAreas = [
     description:
       "Complete CSR ecosystem support including applicability checks, CSR policy drafting, project monitoring, and agreements with implementing agencies.",
     slug: "csr-support"
-  },
-  {
-    icon: GitMerge,
-    title: "Mergers, Acquisitions and Business Restructuring",
-    description:
-      "Strategic M and A and restructuring solutions including hive offs, slump sale, succession planning and negotiation of transaction documents.",
-    slug: "mergers-acquisitions-restructuring"
-  },
-  {
-    icon: Scale,
-    title: "Insolvency and Bankruptcy Support",
-    description:
-      "End to end IBC support including CIRP, liquidation, voluntary liquidation, claim verification, distribution and filings before NCLT and DRT.",
-    slug: "insolvency-bankruptcy"
   }
 ];
 
 const PracticeAreas = () => {
   const location = useLocation();
 
-  // Jump to specific card instantly
   useEffect(() => {
     const scrollToCard = location.state?.scrollToCard;
     if (scrollToCard) {
@@ -122,7 +121,6 @@ const PracticeAreas = () => {
           </p>
         </motion.div>
 
-        {/* Cards grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {practiceAreas.map((area, index) => (
             <motion.div
@@ -138,10 +136,6 @@ const PracticeAreas = () => {
               <div className="pointer-events-none absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/25 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
 
               <div className="relative z-10 p-8 h-full flex flex-col">
-                <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-white/25 via-transparent to-transparent rotate-12" />
-                </div>
-
                 <div className="mb-6">
                   <div className="inline-flex items-center justify-center rounded-2xl p-4 bg-primary/8 border border-primary/15 shadow-inner group-hover:bg-primary/15 group-hover:border-primary/40 transition-all duration-500">
                     <area.icon className="w-8 h-8 text-primary" />
