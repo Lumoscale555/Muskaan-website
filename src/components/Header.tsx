@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from "@/assets/mag-law-logo.jpg";
+import logo from "@/assets/Maglaw New logo.jpg";
 
 const menuItems = [
   { label: "Home", id: "hero" },
@@ -98,15 +98,15 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:block ml-6">
-          <Button className="bg-white text-[#4A1A2C] hover:bg-white/90">
-            <a
-              href="https://calendly.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <a
+            href="https://calendly.com/aggarwalmuskaan37"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-white text-[#4A1A2C] hover:bg-white/90">
               Book Consultation
-            </a>
-          </Button>
+            </Button>
+          </a>
         </div>
 
         <button

@@ -47,12 +47,20 @@ const Blogs = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {blogPosts.map(post => (
-            <article key={post.id} className="border rounded-xl shadow-soft hover:shadow-premium transition">
+            <article
+              key={post.id}
+              className="border rounded-xl shadow-soft hover:shadow-premium transition flex flex-col h-full"
+            >
 
-              <img src={post.image} className="w-full h-52 object-cover rounded-t-xl" />
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-52 object-cover rounded-t-xl"
+              />
 
-              <div className="p-6">
-                <span className="text-primary bg-primary/10 px-3 py-1 rounded-full text-xs">
+              <div className="p-6 flex flex-col grow">
+
+                <span className="text-primary bg-primary/10 px-3 py-1 rounded-full text-xs w-fit">
                   {post.category}
                 </span>
 
@@ -64,7 +72,8 @@ const Blogs = () => {
                   {post.excerpt}
                 </p>
 
-                <div className="flex justify-between items-center">
+                <div className="mt-auto flex justify-between items-center">
+
                   <span className="flex items-center text-sm text-muted-foreground">
                     <Calendar className="w-4 h-4 mr-2" />
                     {post.date}
@@ -74,9 +83,11 @@ const Blogs = () => {
                     to={`/blog/${post.id}`}
                     className="border border-primary px-4 py-1.5 rounded text-primary hover:bg-primary hover:text-white transition"
                   >
-                    Read →
+                    Read
                   </Link>
+
                 </div>
+
               </div>
 
             </article>
