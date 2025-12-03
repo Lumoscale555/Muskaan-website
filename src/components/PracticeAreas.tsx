@@ -96,10 +96,7 @@ const PracticeAreas = () => {
   }, [location.state]);
 
   return (
-    <section
-      id="practice-areas"
-      className="py-24 bg-background relative overflow-hidden"
-    >
+    <section id="practice-areas" className="py-24 bg-background relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,27,69,0.12),_transparent_60%)]" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -130,8 +127,8 @@ const PracticeAreas = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.08 }}
               viewport={{ once: true, margin: "-80px" }}
-              whileHover={{ y: -6, rotateX: 2, rotateY: -2 }}
-              className="relative group rounded-3xl border border-border/50 bg-gradient-to-br from-card to-card/80 shadow-elegant overflow-hidden will-change-transform"
+              whileHover={{ y: -6 }}
+              className="relative group rounded-3xl border border-border/50 bg-gradient-to-br from-card to-card/80 shadow-elegant overflow-hidden"
             >
               <div className="pointer-events-none absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/25 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
 
@@ -142,24 +139,21 @@ const PracticeAreas = () => {
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-3 relative">
+                <h3 className="text-2xl font-serif font-bold text-foreground mb-3">
                   {area.title}
-                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary group-hover:w-12 transition-all duration-500" />
                 </h3>
 
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 flex-1">
+                {/* FIXED HEIGHT DESCRIPTION */}
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 h-[96px] overflow-hidden">
                   {area.description}
                 </p>
 
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 group-hover:shadow-md"
+                  className="w-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 >
-                  <Link
-                    to={`/practice-areas/${area.slug}`}
-                    state={{ fromCard: area.slug }}
-                  >
+                  <Link to={`/practice-areas/${area.slug}`} state={{ fromCard: area.slug }}>
                     Learn More
                   </Link>
                 </Button>

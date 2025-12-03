@@ -1,7 +1,7 @@
 import { Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
-import MuskaanImg from "../assets/Muskaan2.jpg";
+import MuskaanImg from "../assets/muskaan.jpg";
 import SasirekhaImg from "../assets/Sasirekha.jpg";
 import KritiImg from "../assets/Kriti.jpg";
 

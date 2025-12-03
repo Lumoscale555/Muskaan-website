@@ -1,18 +1,11 @@
 import { useEffect } from "react";
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 
-const practiceAreaDetails: Record<
-  string,
-  {
-    title: string;
-    description: string;
-    offerings: string[];
-  }
-> = {
+const practiceAreaDetails: Record<string, { title: string; description: string; offerings: string[] }> = {
   "capital-markets-fundraising": {
     title: "Capital Markets and Fundraising Advisory",
     description:
@@ -23,10 +16,9 @@ const practiceAreaDetails: Record<
       "Pre IPO readiness assessments and compliance analysis",
       "Valuation narrative and investor engagement strategy",
       "Documentation and complete IPO process management",
-      "Post listing governance and regulatory support",
-    ],
+      "Post listing governance and regulatory support"
+    ]
   },
-
   "corporate-governance-secretarial": {
     title: "Corporate Law, Governance and Secretarial Services",
     description:
@@ -36,10 +28,9 @@ const practiceAreaDetails: Record<
       "Board and general meeting assistance",
       "Drafting commercial agreements including SHA and Founder Agreements",
       "Corporate governance advisory, SOP creation and policy drafting",
-      "Representation before ROC, RD, Official Liquidators and MCA",
-    ],
+      "Representation before ROC, RD, Official Liquidators and MCA"
+    ]
   },
-
   "fema-cross-border": {
     title: "Foreign Exchange Law and Cross Border Transaction Advisory",
     description:
@@ -49,10 +40,9 @@ const practiceAreaDetails: Record<
       "International deal structuring and legal opinions",
       "RBI and DPIIT approvals and filings",
       "Compounding applications and voluntary disclosures",
-      "Representation before regulatory and enforcement authorities",
-    ],
+      "Representation before regulatory and enforcement authorities"
+    ]
   },
-
   "business-setup-startup": {
     title: "Business Setup and Startup Consulting",
     description:
@@ -63,10 +53,9 @@ const practiceAreaDetails: Record<
       "Licenses and approvals across industries",
       "Startup India registration and benefits",
       "IP registration, business search reports and due diligence",
-      "End to end support including accounting, payroll and audit",
-    ],
+      "End to end support including accounting, payroll and audit"
+    ]
   },
-
   "risk-compliance-due-diligence": {
     title: "Risk, Compliance and Due Diligence Services",
     description:
@@ -76,10 +65,9 @@ const practiceAreaDetails: Record<
       "Labour law audits and compliance assessments",
       "ESG diligence and red flag reporting",
       "Compliance health checks and risk mapping",
-      "Drafting and review of investment contracts and agreements",
-    ],
+      "Drafting and review of investment contracts and agreements"
+    ]
   },
-
   "esg-sustainability": {
     title: "ESG and Sustainability",
     description:
@@ -89,10 +77,9 @@ const practiceAreaDetails: Record<
       "ESG and sustainability reporting and assurance",
       "Environmental law advisory and compliance",
       "ESG diligence for investments",
-      "Sustainability monitoring and impact reporting",
-    ],
+      "Sustainability monitoring and impact reporting"
+    ]
   },
-
   "csr-support": {
     title: "Corporate Social Responsibility Support",
     description:
@@ -102,10 +89,9 @@ const practiceAreaDetails: Record<
       "CSR policy and action plan drafting",
       "Due diligence of implementing agencies",
       "Drafting CSR agreements and compliance reports",
-      "Project monitoring and outcome based reporting",
-    ],
+      "Project monitoring and outcome based reporting"
+    ]
   },
-
   "mergers-acquisitions-restructuring": {
     title: "Mergers, Acquisitions and Business Restructuring",
     description:
@@ -116,10 +102,9 @@ const practiceAreaDetails: Record<
       "Slump sale transactions and asset transfers",
       "Drafting SPAs, BTAs and non compete agreements",
       "Capital restructuring and regulatory approvals",
-      "Cross border transactions and group reorganizations",
-    ],
+      "Cross border transactions and group reorganizations"
+    ]
   },
-
   "insolvency-bankruptcy": {
     title: "Insolvency and Bankruptcy Support",
     description:
@@ -129,40 +114,30 @@ const practiceAreaDetails: Record<
       "Liquidation process assistance and asset memorandum preparation",
       "Bankruptcy proceedings including repayment plans and distribution",
       "Filings before NCLT, DRT and IBBI",
-      "Regulatory reports and disclosures",
-    ],
-  },
+      "Regulatory reports and disclosures"
+    ]
+  }
 };
 
 const PracticeAreaDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
-
   const area = slug ? practiceAreaDetails[slug] : null;
 
-  // Always scroll to top when page loads
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  // Back to the exact card
   const goBackToCard = () => {
-    navigate("/", {
-      state: { scrollToCard: slug }, // This tells Home which card to scroll to
-    });
+    navigate("/", { state: { scrollToCard: slug } });
   };
 
   if (!area) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-serif font-bold mb-4">
-            Practice Area Not Found
-          </h1>
-          <Button asChild>
-            <Link to="/">Return Home</Link>
-          </Button>
+          <h1 className="text-4xl font-serif font-bold mb-4">Practice Area Not Found</h1>
+          <Button asChild><Link to="/">Return Home</Link></Button>
         </div>
       </div>
     );
@@ -175,28 +150,19 @@ const PracticeAreaDetail = () => {
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-4">
 
-          {/* Back button */}
-          <Button
-            variant="ghost"
-            className="mb-8 flex items-center"
-            onClick={goBackToCard}
-          >
+          <Button variant="ghost" className="mb-8 flex items-center" onClick={goBackToCard}>
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
           </Button>
 
-          {/* Title */}
-          <div className="mb-16 animate-fade-in-up">
-            <h1 className="text-6xl font-serif font-bold text-foreground mb-6">
-              {area.title}
-            </h1>
+          <div className="mb-16">
+            <h1 className="text-6xl font-serif font-bold mb-6">{area.title}</h1>
             <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">
               {area.description}
             </p>
           </div>
 
-          {/* Offerings */}
-          <div className="grid md:grid-cols-2 gap-8 animate-fade-in-up">
+          <div className="grid md:grid-cols-2 gap-8">
             {area.offerings.map((offering, index) => (
               <div
                 key={index}
@@ -205,9 +171,7 @@ const PracticeAreaDetail = () => {
                 <div className="p-2 rounded-full bg-primary/10">
                   <CheckCircle2 className="w-6 h-6 text-primary" />
                 </div>
-                <p className="text-lg text-foreground">
-                  {offering}
-                </p>
+                <p className="text-lg text-foreground">{offering}</p>
               </div>
             ))}
           </div>
