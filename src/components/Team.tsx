@@ -1,4 +1,4 @@
-import { Linkedin, Mail } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 
 import MuskaanImg from "../assets/Muskaan2.jpg";
@@ -8,108 +8,125 @@ import KritiImg from "../assets/Kriti.jpg";
 const teamMembers = [
   {
     name: "CS Muskaan Aggarwal",
-    roleLine1: "Founder and Managing Partner",
-    roleLine2: "Practising Company Secretary",
+    role1: "Founder and Managing Partner",
+    role2: "Peer reviewed Practising Company Secretary",
+    qualification: "B.B.A., LL.B., LLM (Corporate Laws), ACS",
     image: MuskaanImg,
-    linkedin: "https://www.linkedin.com/in/csmuskaan",
-    email: "muskaan@maglaw.in"
+    email: "muskaan@maglaw.in",
+    linkedin: "https://www.linkedin.com/in/csmuskaan"
   },
   {
     name: "CS Shashirekha Hegde",
-    roleLine1: "Lead",
-    roleLine2: "Corporate Secretarial and Restructuring",
+    role1: "Lead",
+    role2: "Corporate Secretarial and Restructuring",
+    qualification: "B.Com, ACS",
     image: SasirekhaImg,
-    linkedin: "https://www.linkedin.com/in/cs-shashirekha-hegde-63b778239/",
-    email: "shashirekha@maglaw.in"
+    email: "shashirekha@maglaw.in",
+    linkedin: "https://www.linkedin.com/in/cs-shashirekha-hegde-63b778239/"
   },
   {
     name: "Adv. Kriti Saxena",
-    roleLine1: "Lead",
-    roleLine2: "Corporate Legal and Real Estate",
+    role1: "Lead",
+    role2: "Corporate Legal and Real Estate",
+    qualification: "B.B.A., LL.B., LLM (Constitutional Laws)",
     image: KritiImg,
-    linkedin: "https://www.linkedin.com/in/kritiisaxenaa",
-    email: "team@maglaw.in"
+    email: "team@maglaw.in",
+    linkedin: "https://www.linkedin.com/in/kritiisaxenaa"
   }
 ];
 
 const Team = () => {
   return (
-    <section id="team" className="py-28 bg-gradient-soft">
-      <div className="container mx-auto">
+    <section id="team" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
 
-        {/* Heading */}
+        {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 px-4"
+          className="text-center mb-16"
         >
-          <h2 className="text-5xl font-serif font-bold mb-3">
-            Our <span className="text-gradient-burgundy">Leadership</span>
+          <h2 className="text-5xl font-serif font-bold">
+            Our <span className="text-[#9d1c2a]">Leaders</span>
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-gray-500 mt-4">
             Trusted professionals delivering legal and regulatory excellence.
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-4">
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
-          {teamMembers.map((member, idx) => (
+          {teamMembers.map((m, i) => (
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 40 }}
+              key={i}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.15, duration: 0.6 }}
+              transition={{ delay: i * 0.12 }}
               viewport={{ once: true }}
-              className="group relative rounded-2xl overflow-hidden shadow-premium bg-white"
+              className="border bg-white shadow-sm rounded-md relative h-[440px] flex flex-col justify-between overflow-hidden"
             >
+              {/* TOP STRIPE */}
+              <div className="absolute top-0 left-0 w-full h-[5px] bg-[#9d1c2a]" />
 
-              {/* IMAGE SECTION FULL COVER */}
-              <div className="relative h-[400px] w-full overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="h-full w-full object-cover object-center transform group-hover:scale-105 transition duration-700"
-                />
+              {/* IMAGE */}
+              <div className="mt-8 flex justify-center h-[170px]">
+                <div className="w-[120px] h-[150px] rounded-sm overflow-hidden border">
+                  <img
+                    src={m.image}
+                    alt={m.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
 
-              {/* DETAILS */}
-              <div className="p-6 text-center bg-white">
-                <h3 className="font-serif font-semibold text-xl">
-                  {member.name}
+              {/* CENTER CONTENT */}
+              <div className="px-8 text-center mt-2 flex flex-col justify-start h-[155px]">
+
+                <h3 className="text-xl font-serif font-bold text-[#9d1c2a] min-h-[32px] flex items-center justify-center">
+                  {m.name}
                 </h3>
-                <p className="mt-1 text-sm font-medium">
-                  {member.roleLine1}
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  {member.roleLine2}
+
+                <p className="mt-2 text-sm font-semibold text-black uppercase tracking-wide min-h-[22px]">
+                  {m.role1}
                 </p>
 
-                {/* ICONS */}
-                <div className="flex justify-center gap-4 mt-4">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-full flex items-center justify-center bg-primary/10 hover:bg-primary hover:text-white transition"
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="h-10 w-10 rounded-full flex items-center justify-center bg-primary/10 hover:bg-primary hover:text-white transition"
-                  >
-                    <Mail size={18} />
-                  </a>
-                </div>
+                <p className="text-gray-600 text-sm min-h-[22px]">
+                  {m.role2}
+                </p>
+
+                <p className="text-xs text-gray-500 mt-2 italic min-h-[18px]">
+                  {m.qualification}
+                </p>
+
+              </div>
+
+              {/* FOOTER */}
+              <div className="border-t px-6 py-4 text-sm text-[#9d1c2a] flex flex-col gap-2 items-center bg-gray-50">
+                <a
+                  href={`mailto:${m.email}`}
+                  className="flex items-center gap-2 hover:underline"
+                >
+                  <Mail size={16} />
+                  {m.email}
+                </a>
+                <a
+                  href={m.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:underline"
+                >
+                  <Linkedin size={16} />
+                  LinkedIn Profile
+                </a>
               </div>
 
             </motion.div>
           ))}
-        </div>
 
+        </div>
       </div>
     </section>
   );

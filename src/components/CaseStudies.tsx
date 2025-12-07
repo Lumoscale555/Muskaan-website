@@ -35,10 +35,9 @@ const CaseStudies = () => {
 
               <div className="max-w-[520px]">
                 <h4 className="font-semibold mb-2">The Challenge</h4>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground text-justify leading-relaxed">
                   A crypto focused marketing startup wanted to set up operations in India and promote virtual digital
-                  assets{" "}
-                  <br className="hidden md:block" />
+                  assets 
                   without breaching evolving regulations or violating ASCI guidelines on crypto advertising.
                 </p>
               </div>
@@ -52,10 +51,9 @@ const CaseStudies = () => {
 
               <div className="max-w-[520px]">
                 <h4 className="font-semibold mb-2">The Result</h4>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   Structured their business model and marketing workflows to ensure full compliance with Advertising
-                  Standards Council of India guidelines for virtual digital assets and NFT advertisements,{" "}
-                  <br className="hidden md:block" />
+                  Standards Council of India guidelines for virtual digital assets and NFT advertisements, 
                   enabling the company to run campaigns legally and operate securely in the Indian market.
                 </p>
               </div>
@@ -80,10 +78,9 @@ const CaseStudies = () => {
 
               <div className="max-w-[520px]">
                 <h4 className="font-semibold mb-2">The Challenge</h4>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   The company faced allegations of forgery, confidential data misuse, privacy breaches and social media
-                  misuse,{" "}
-                  <br className="hidden md:block" />
+                  misuse, 
                   including online defamation by former employees and potential violations of employment agreements,
                   creating legal and reputational risk.
                 </p>
@@ -98,10 +95,9 @@ const CaseStudies = () => {
 
               <div className="max-w-[520px]">
                 <h4 className="font-semibold mb-2">The Result</h4>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   Provided end to end legal support by assessing evidence, issuing structured legal notices and handling
-                  negotiations,{" "}
-                  <br className="hidden md:block" />
+                  negotiations,
                   while securing compliance and protecting the company reputation, which resolved the matter without
                   prolonged litigation.
                 </p>
@@ -116,7 +112,7 @@ const CaseStudies = () => {
             </span>
 
             <h3 className="text-2xl font-serif font-bold mb-8 leading-snug">
-              Non Compete and Non Solicitation<br className="hidden xl:block" /> Contract Redesign
+              Non Compete and Non Solicitation<br className="hidden xl:block" />
             </h3>
 
             {/* Challenge */}
@@ -127,10 +123,9 @@ const CaseStudies = () => {
 
               <div className="max-w-[520px]">
                 <h4 className="font-semibold mb-2">The Challenge</h4>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   The existing non compete clause was overbroad in duration, geography and scope, placing it at risk of
-                  being void under constitutional and contractual law,{" "}
-                  <br className="hidden md:block" />
+                  being void under constitutional and contractual law,
                   while failing to properly protect the company AI driven business model.
                 </p>
               </div>
@@ -144,10 +139,9 @@ const CaseStudies = () => {
 
               <div className="max-w-[520px]">
                 <h4 className="font-semibold mb-2">The Result</h4>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   Redesigned the provisions by narrowing definitions, removing territorial excess and refining non
-                  solicitation terms,{" "}
-                  <br className="hidden md:block" />
+                  solicitation terms,
                   balancing enforceability and fairness to protect commercial interests while reducing litigation risk.
                 </p>
               </div>

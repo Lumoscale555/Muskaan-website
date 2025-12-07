@@ -15,44 +15,20 @@ const menuItems = [
   { label: "Contact", id: "contact" }
 ];
 
-const Header = () => {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
 
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    const onScroll = () => setIsScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (location.pathname !== "/") return;
-
-    const ids = menuItems.map((i) => i.id);
-
-    const observers = ids.map((id) => {
-      const el = document.getElementById(id);
-      if (!el) return null;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { threshold: 0.4 }
-      );
-
-      observer.observe(el);
-      return observer;
-    });
-
-    return () => observers.forEach((o) => o?.disconnect());
-  }, [location.pathname]);
-
-  const scrollToSection = (id: string) => {
+  const scrollTo = (id: string) => {
     setIsMobileMenuOpen(false);
 
     if (location.pathname !== "/") {
@@ -66,51 +42,48 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-[#4A1A2C]/90 backdrop-blur-md py-3 shadow-lg"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled || location.pathname !== "/"
+          ? "bg-[#4A1A2C] py-3 shadow-md"
           : "bg-[#4A1A2C] py-5"
       } text-white`}
     >
       <div className="container mx-auto px-4 flex items-center">
 
-        <button
-          onClick={() => scrollToSection("hero")}
-          className="flex-shrink-0"
-        >
-          <img src={logo} className="h-12 w-auto" alt="MAG Law" />
+        {/* LOGO FIXED */}
+        <button onClick={() => scrollTo("hero")} className="flex-shrink-0">
+          <img
+            src={logo}
+            alt="MAGLAW"
+            className="h-11 w-auto object-contain"
+          />
         </button>
 
+        {/* MENU */}
         <nav className="hidden lg:flex items-center space-x-6 ml-auto">
-          {menuItems.map((item) => (
+          {menuItems.map(item => (
             <button
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`px-4 py-2 rounded-md transition ${
-                activeSection === item.id
-                  ? "bg-white text-[#4A1A2C]"
-                  : "text-white hover:text-pink-200"
-              }`}
+              onClick={() => scrollTo(item.id)}
+              className="px-4 py-2 hover:bg-white/10 rounded transition"
             >
               {item.label}
             </button>
           ))}
         </nav>
 
+        {/* CTA */}
         <div className="hidden lg:block ml-6">
-          <a
-            href="https://calendly.com/aggarwalmuskaan37"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://calendly.com/aggarwalmuskaan37" target="_blank" rel="noopener noreferrer">
             <Button className="bg-white text-[#4A1A2C] hover:bg-white/90">
               Book Consultation
             </Button>
           </a>
         </div>
 
+        {/* MOBILE */}
         <button
-          className="lg:hidden text-white ml-auto"
+          className="lg:hidden ml-auto"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -119,6 +92,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}

@@ -7,76 +7,69 @@ const Footer = () => {
     <footer className="bg-burgundy text-primary-foreground">
       <div className="container mx-auto px-4 py-16">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
+          {/* BRAND */}
           <div>
             <img src={logo} alt="MAG.LAW" className="h-16 w-auto mb-6" />
             <p className="text-primary-foreground/80 leading-relaxed mb-6">
               Your trusted partner in legal excellence. Delivering comprehensive legal solutions with integrity and expertise.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://linkedin.com/company/maglaw-advisors-and-consultants"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-primary-foreground/10 rounded-full hover:bg-primary-foreground/20 transition-all duration-300 hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
+
+            <a
+              href="https://www.linkedin.com/company/maglaw-advisors-and-consultants"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 border border-primary-foreground/30 rounded hover:bg-primary-foreground/10 transition"
+            >
+              <Linkedin size={18} />
+              Follow on LinkedIn
+            </a>
           </div>
 
+          {/* QUICK LINKS */}
           <div>
             <h3 className="text-xl font-serif font-bold mb-6">Quick Links</h3>
-
             <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-              <Link to="/" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Home
-              </Link>
-
-              <Link to="/#about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                About
-              </Link>
-
-              <Link to="/practice-areas" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Practice Areas
-              </Link>
-
-              <Link to="/blogs" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Legal Insights
-              </Link>
-
-              <Link to="/#team" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Team
-              </Link>
-
-              <Link to="/case-studies" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Case Studies
-              </Link>
-
-              <Link to="/faqs" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                FAQs
-              </Link>
-
-              <Link to="/#contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Contact
-              </Link>
+              <Link to="/" className="hover:text-white">Home</Link>
+              <Link to="/#about" className="hover:text-white">About</Link>
+              <Link to="/practice-areas" className="hover:text-white">Practice Areas</Link>
+              <Link to="/blogs" className="hover:text-white">Legal Insights</Link>
+              <Link to="/#team" className="hover:text-white">Team</Link>
+              <Link to="/case-studies" className="hover:text-white">Case Studies</Link>
+              <Link to="/faqs" className="hover:text-white">FAQs</Link>
+              <Link to="/#contact" className="hover:text-white">Contact</Link>
             </div>
           </div>
 
+          {/* CONTACT */}
           <div>
             <h3 className="text-xl font-serif font-bold mb-6">Get in Touch</h3>
-            <ul className="space-y-3 text-primary-foreground/80">
-              <li>
-                34 T, First Floor<br />
-                11th Main Road, Jayanagar<br />
-                Bengaluru, Karnataka 560041<br />
-                India
-              </li>
-              <li>Phone: +91 81056 26011</li>
-              <li>Email: team@maglaw.in</li>
-            </ul>
+            <p className="text-primary-foreground/80 leading-relaxed">
+              34 T, First Floor, 11th Main Road,<br />
+              Jayanagar, Bengaluru, Karnataka 560041, India
+            </p>
+            <p className="mt-4 text-primary-foreground/80">Phone, +91 81056 26011</p>
+            <p className="text-primary-foreground/80">Email, team@maglaw.in</p>
+          </div>
+
+          {/* LINKEDIN EMBED */}
+          <div>
+            <h3 className="text-xl font-serif font-bold mb-6">Latest on LinkedIn</h3>
+
+            <div className="bg-white rounded overflow-hidden shadow-md">
+
+              <iframe
+                src="https://www.linkedin.com/embed/feed/update/urn:li:share:7402240674537881600?collapsed=1"
+                height="280"
+                width="100%"
+                frameBorder="0"
+                allowFullScreen
+                title="Maglaw LinkedIn Post"
+                className="block"
+              />
+
+            </div>
           </div>
 
         </div>

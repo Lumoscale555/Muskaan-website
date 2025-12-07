@@ -99,6 +99,10 @@ section {
   transform: translateZ(0);
 }
 
+.text-justify {
+  text-align: justify !important;
+}
+
 /* FADE ANIMATIONS */
 @keyframes fadeIn {
   from { opacity: 0; }

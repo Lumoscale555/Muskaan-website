@@ -16,13 +16,13 @@ const AboutMaglaw = () => {
               A Vision Born from <span className="text-gradient-burgundy">Passion</span>
             </h2>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground text-justify leading-relaxed">
               The inception of Maglaw Advisors was driven by a singular vision: to democratize access
               to exceptional legal services while maintaining the highest standards. Our core focus areas include
               business advisory, corporate structuring, and strategic planning.
             </p>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground text-justify leading-relaxed">
               We are a team of 20+ dedicated professionals working towards supporting businesses and startups
               through every stage of growth. We partner with entrepreneurs, founders, and leadership teams to
               provide clear, actionable guidance tailored to their specific needs.
