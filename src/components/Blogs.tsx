@@ -8,7 +8,7 @@ const blogPosts = [
     title: "IBBI Update, Resolution Plans Approved in 2024",
     excerpt: "Five insolvency resolutions across major industries with recovery statistics.",
     image: "/thumbnails/IBBI.jpg",
-    date: "2024",
+    date: "2025",
     category: "Insolvency and Bankruptcy Law"
   },
   {
@@ -16,7 +16,7 @@ const blogPosts = [
     title: "Major Changes Under SEBI Regulations During 2024",
     excerpt: "PIT and LODR amendments affecting governance and disclosures.",
     image: "/thumbnails/SEBI.png",
-    date: "2024",
+    date: "2025",
     category: "SEBI Updates"
   },
   {
@@ -24,7 +24,7 @@ const blogPosts = [
     title: "A Must Have Glossary for Every Founder",
     excerpt: "Startup terms explained in simple language for founders.",
     image: "/thumbnails/Startup.jpg",
-    date: "2024",
+    date: "2025",
     category: "Startup and Business Law"
   }
 ];
