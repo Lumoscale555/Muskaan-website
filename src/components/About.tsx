@@ -2,12 +2,9 @@ import maglawLogo from "@/assets/mag-law-logo.jpg";
 
 const AboutMaglaw = () => {
   return (
-    <section id="about-page" className="py-24 bg-gradient-to-br from-burgundy/5 to-background relative overflow-hidden">
+    <section id="about-page" className="py-24 bg-white relative">
 
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           <div className="space-y-6 animate-fade-in-up">
